@@ -1,0 +1,2 @@
+# advancedBase
+前后台分离和后台权限管理及restful基础实现
