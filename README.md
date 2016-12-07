@@ -1,7 +1,7 @@
 Yii 2 Advanced Project Template
 ===============================
 
-主要搭建了yii2框架的前后台分离和登录注册及user用户模块和后台权限管理及后台adminLTE的引入的基础功能
+主要搭建了yii2框架的前后台分离和登录注册及user用户模块和后台权限管理的基础功能
 
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 developing complex Web applications with multiple tiers.
