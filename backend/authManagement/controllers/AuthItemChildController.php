@@ -66,11 +66,13 @@ class AuthItemChildController extends Controller
     {
         $model = new AuthItemChild();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->createRelation()) {
             return $this->redirect(['view', 'parent' => $model->parent, 'child' => $model->child]);
         } else {
+            $itemList = AuthItemChild::itemList();
             return $this->render('create', [
                 'model' => $model,
+                'itemList' => $itemList,
             ]);
         }
     }

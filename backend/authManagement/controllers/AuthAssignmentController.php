@@ -66,10 +66,12 @@ class AuthAssignmentController extends Controller
     {
         $model = new AuthAssignment();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->createAssignment()) {
             return $this->redirect(['view', 'item_name' => $model->item_name, 'user_id' => $model->user_id]);
         } else {
             return $this->render('create', [
+                'itemList' => AuthAssignment::itemList(),
+                'userList' => AuthAssignment::userList(),
                 'model' => $model,
             ]);
         }

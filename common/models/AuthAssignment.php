@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%auth_assignment}}".
@@ -24,6 +25,17 @@ class AuthAssignment extends \yii\db\ActiveRecord
         return '{{%auth_assignment}}';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -32,8 +44,8 @@ class AuthAssignment extends \yii\db\ActiveRecord
         return [
             [['item_name', 'user_id'], 'required'],
             [['created_at', 'updated_at'], 'integer'],
-            [['item_name', 'user_id'], 'string', 'max' => 64],
-            [['item_name'], 'exist', 'skipOnError' => true, 'targetClass' => AuthItem::className(), 'targetAttribute' => ['item_name' => 'name']],
+            //[['user_id'], 'string', 'max' => 64],
+            //[['item_name'], 'exist', 'skipOnError' => true, 'targetClass' => AuthItem::className(), 'targetAttribute' => ['item_name' => 'name']],
         ];
     }
 
@@ -43,10 +55,10 @@ class AuthAssignment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'item_name' => Yii::t('app', 'Item Name'),
-            'user_id' => Yii::t('app', 'User ID'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'item_name' => Yii::t('app', '角色/权限名'),
+            'user_id' => Yii::t('app', '用户ID'),
+            'created_at' => Yii::t('app', '创建时间'),
+            'updated_at' => Yii::t('app', '更新时间'),
         ];
     }
 

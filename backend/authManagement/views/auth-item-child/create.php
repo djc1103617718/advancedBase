@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\authManagement\models\AuthItemChild */
 
-$this->title = Yii::t('app', 'Create Auth Item Child');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Auth Item Children'), 'url' => ['index']];
+$this->title = Yii::t('app', '创建关系');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', '权限/角色关系'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-item-child-create">
@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'itemList' => $itemList,
     ]) ?>
 
 </div>

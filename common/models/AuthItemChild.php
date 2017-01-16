@@ -30,9 +30,9 @@ class AuthItemChild extends \yii\db\ActiveRecord
     {
         return [
             [['parent', 'child'], 'required'],
-            [['parent', 'child'], 'string', 'max' => 64],
+            [['parent'], 'string', 'max' => 64],
             [['parent'], 'exist', 'skipOnError' => true, 'targetClass' => AuthItem::className(), 'targetAttribute' => ['parent' => 'name']],
-            [['child'], 'exist', 'skipOnError' => true, 'targetClass' => AuthItem::className(), 'targetAttribute' => ['child' => 'name']],
+            //[['child'], 'exist', 'skipOnError' => true, 'targetClass' => AuthItem::className(), 'targetAttribute' => ['child' => 'name']],
         ];
     }
 
@@ -42,8 +42,8 @@ class AuthItemChild extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'parent' => Yii::t('app', 'Parent'),
-            'child' => Yii::t('app', 'Child'),
+            'parent' => Yii::t('app', '父级'),
+            'child' => Yii::t('app', '子级'),
         ];
     }
 

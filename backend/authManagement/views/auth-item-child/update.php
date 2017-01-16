@@ -5,12 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\authManagement\models\AuthItemChild */
 
-$this->title = Yii::t('app', 'Update {modelClass}: ', [
-    'modelClass' => 'Auth Item Child',
-]) . $model->parent;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Auth Item Children'), 'url' => ['index']];
+$this->title = Yii::t('app', '更新角色/权限关系:') . $model->parent;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', '角色/权限关系'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->parent, 'url' => ['view', 'parent' => $model->parent, 'child' => $model->child]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-item-child-update">
 
@@ -18,6 +16,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 
     <?= $this->render('_form', [
         'model' => $model,
+        'itemList' => $itemList,
     ]) ?>
 
 </div>
