@@ -3,9 +3,9 @@
 namespace backend\authManagement\controllers;
 
 use Yii;
+use backend\controllers\BaseController;
 use backend\authManagement\models\AuthItem;
 use backend\authManagement\models\searchs\AuthItemSearch;
-use yii\web\Controller;
 use common\helpers\FileAide;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,7 +13,7 @@ use yii\filters\VerbFilter;
 /**
  * AuthItemController implements the CRUD actions for AuthItem model.
  */
-class AuthItemController extends Controller
+class AuthItemController extends BaseController
 {
     /**
      * @inheritdoc

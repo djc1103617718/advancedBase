@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use backend\models\Admin;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\authManagement\models\searchs\AuthAssignmentSearch */
@@ -25,7 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'item_name',
-            'user_id',
+            [
+                'attribute' => 'user_id',
+                'value' => function ($model) {
+                    return Admin::findOne(['id' => $model->user_id, 'status' => Admin::STATUS_ACTIVE])->username;
+                }
+            ],
             'created_at',
             'updated_at',
 
